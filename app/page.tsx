@@ -15,6 +15,7 @@ import ProjectExplorer from "@/components/home/ProjectExplorer";
 import Footer from "@/components/layouts/Footer";
 import Navbar from "@/components/layouts/Navbar";
 import TopBar from "@/components/layouts/TopBar";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -34,7 +35,24 @@ export default function Home() {
         <ConstituencyExplorer />
         <LegislativeHighlights />
         <EmpowermentHighlights />
-        <ProjectExplorer />
+
+        <Suspense
+          fallback={
+            <section className="bg-white py-16 sm:py-20 lg:py-24">
+              <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-6 lg:px-8">
+                <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-6">
+                  <div className="h-8 w-56 animate-pulse rounded-lg bg-slate-200" />
+
+                  <div className="mt-4 h-12 max-w-2xl animate-pulse rounded-lg bg-slate-200" />
+
+                  <div className="mt-8 h-[280px] animate-pulse rounded-[24px] bg-slate-200" />
+                </div>
+              </div>
+            </section>
+          }
+        >
+          <ProjectExplorer />
+        </Suspense>
         
         <Opportunities />
         <Testimonials />

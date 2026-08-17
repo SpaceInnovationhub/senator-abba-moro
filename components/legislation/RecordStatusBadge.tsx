@@ -34,6 +34,9 @@ const statusStyles: Record<LegislativeStatus, string> = {
 
   Proposed:
     "border-slate-200 bg-slate-100 text-slate-700",
+
+  "Stepped Down":
+    "border-slate-300 bg-slate-100 text-slate-700",
 };
 
 export default function RecordStatusBadge({
