@@ -1,0 +1,397 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="100%" height="100%">
+  <defs>
+    <!-- Map Drop Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="8" dy="12" stdDeviation="8" flood-color="#0e381e" flood-opacity="0.25"/>
+    </filter>
+
+    <!-- Card Drop Shadow -->
+    <filter id="card-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+
+    <style>
+      .bg { fill: #f9fbf9; }
+      
+      /* Region Styling */
+      .region {
+        fill: #0d5c2e;
+        stroke: #ffffff;
+        stroke-width: 3.5;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        transition: all 0.25s ease;
+        cursor: pointer;
+      }
+      .region:hover {
+        fill: #147a3e;
+      }
+
+      /* Typography */
+      .header-title {
+        font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        font-weight: 900;
+        font-size: 32px;
+        fill: #0d5c2e;
+        letter-spacing: 2px;
+        text-anchor: middle;
+      }
+      .header-subtitle {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        fill: #2e7d32;
+        letter-spacing: 3px;
+        text-anchor: middle;
+      }
+      
+      .lga-label {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-weight: 800;
+        font-size: 13px;
+        fill: #ffffff;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        letter-spacing: 0.8px;
+        pointer-events: none;
+      }
+
+      /* Icons */
+      .lga-icon {
+        fill: #ffffff;
+        pointer-events: none;
+      }
+
+      /* UI Card Styles */
+      .info-card {
+        fill: #ffffff;
+        stroke: #e2ede4;
+        stroke-width: 1.5;
+        rx: 16px;
+      }
+      .card-title {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-weight: 800;
+        font-size: 18px;
+        fill: #0d5c2e;
+      }
+      .card-desc {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        fill: #4b6352;
+      }
+      .card-feature-text {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-weight: 600;
+        font-size: 13.5px;
+        fill: #1b3d26;
+      }
+      .icon-circle {
+        fill: #147a3e;
+      }
+      .icon-circle-svg {
+        fill: #ffffff;
+      }
+      .cta-card {
+        fill: #f0f7f2;
+        stroke: #d3e5d7;
+        stroke-width: 1.5;
+        rx: 14px;
+      }
+      .cta-text {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-weight: 800;
+        font-size: 12px;
+        fill: #0d5c2e;
+        letter-spacing: 0.5px;
+      }
+    </style>
+
+    <!-- Reusable Icons for Map LGAs -->
+    <g id="icon-sun-mountain">
+      <path class="lga-icon" d="M -8 2 L -2 -6 L 2 -1 L 8 6 L -12 6 Z" />
+      <path class="lga-icon" d="M 1 2 L 5 -3 L 12 6 L -2 6 Z" opacity="0.8" />
+      <circle class="lga-icon" cx="-2" cy="-9" r="2.5" />
+    </g>
+
+    <g id="icon-tree">
+      <path class="lga-icon" d="M -1 3 L 1 3 L 1 7 L -1 7 Z" />
+      <circle class="lga-icon" cx="0" cy="-1" r="5.5" />
+      <circle class="lga-icon" cx="-4" cy="1" r="4" />
+      <circle class="lga-icon" cx="4" cy="1" r="4" />
+    </g>
+
+    <g id="icon-sprout">
+      <path class="lga-icon" d="M 0 6 L 0 0 C 0 -4 4 -6 7 -6 C 7 -2 4 0 0 0 C 0 -4 -4 -6 -7 -6 C -7 -2 -4 0 0 0" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <g id="icon-building">
+      <path class="lga-icon" d="M -7 5 L -7 -2 L 0 -6 L 7 -2 L 7 5 Z M -3 5 L -3 1 L 3 1 L 3 5 Z" />
+    </g>
+
+    <g id="icon-drum">
+      <path class="lga-icon" d="M -6 -5 C -6 -7 6 -7 6 -5 L 4 5 C 4 7 -4 7 -4 5 Z" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <path class="lga-icon" d="M -5 -2 L 0 5 L 5 -2 M -5 -2 L -3 5 M 5 -2 L 3 5" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+    </g>
+
+    <g id="icon-waterfall">
+      <path class="lga-icon" d="M -6 -5 L 6 -5 M -4 -5 L -4 6 M 0 -5 L 0 6 M 4 -5 L 4 6 M -8 6 L 8 6" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="100%" height="100%" />
+
+  <!-- HEADER -->
+  <g transform="translate(320, 52)">
+    <text class="header-title" x="0" y="0">BENUE SOUTH MAP</text>
+    <path d="M -140 12 L -30 12 M 30 12 L 140 12" stroke="#0d5c2e" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="0" cy="12" r="3.5" fill="#0d5c2e" />
+    <text class="header-subtitle" x="0" y="32">EXPLORE YOUR LGA</text>
+  </g>
+
+  <!-- MAP GROUP -->
+  <g id="map" transform="translate(40, 40)" filter="url(#shadow)">
+    
+    <!-- AGATU -->
+    <path id="agatu" class="region" d="
+      M 115 50 
+      L 290 108 
+      L 260 162 
+      L 142 155 
+      L 110 112 
+      Z" />
+
+    <!-- APA -->
+    <path id="apa" class="region" d="
+      M 142 155 
+      L 260 162 
+      L 280 235 
+      L 182 282 
+      L 140 250 
+      L 136 195 
+      Z" />
+
+    <!-- OTUKPO -->
+    <path id="otukpo" class="region" d="
+      M 260 162 
+      L 290 108 
+      L 370 310 
+      L 320 380 
+      L 270 420 
+      L 210 382 
+      L 270 372 
+      L 278 322 
+      L 182 282 
+      L 280 235 
+      Z" />
+
+    <!-- OHIMINI -->
+    <path id="ohimini" class="region" d="
+      M 182 282 
+      L 278 322 
+      L 270 372 
+      L 210 382 
+      L 168 345 
+      L 185 312 
+      Z" />
+
+    <!-- OKPOKWU -->
+    <path id="okpokwu" class="region" d="
+      M 182 282 
+      L 185 312 
+      L 168 345 
+      L 210 382 
+      L 270 420 
+      L 230 470 
+      L 182 480 
+      L 188 535 
+      L 155 508 
+      L 120 392 
+      L 155 372 
+      Z" />
+
+    <!-- OGBADIBO -->
+    <path id="ogbadibo" class="region" d="
+      M 120 392 
+      L 155 372 
+      L 98 408 
+      L 75 458 
+      L 92 505 
+      L 145 522 
+      L 135 480 
+      L 105 448 
+      Z" />
+
+    <!-- ADO -->
+    <path id="ado" class="region" d="
+      M 270 420 
+      L 320 380 
+      L 308 460 
+      L 350 525 
+      L 315 590 
+      L 225 638 
+      L 178 638 
+      L 162 580 
+      L 205 570 
+      L 188 535 
+      L 182 480 
+      L 230 470 
+      Z" />
+
+    <!-- OBI -->
+    <path id="obi" class="region" d="
+      M 320 380 
+      L 370 310 
+      L 430 395 
+      L 440 445 
+      L 398 472 
+      L 308 460 
+      Z" />
+
+    <!-- OJU -->
+    <path id="oju" class="region" d="
+      M 308 460 
+      L 398 472 
+      L 440 445 
+      L 500 530 
+      L 460 580 
+      L 385 550 
+      L 350 525 
+      Z" />
+
+    <!-- MAP ICONS & LABELS -->
+    <!-- Agatu -->
+    <g transform="translate(195, 108)">
+      <use href="#icon-sun-mountain" x="0" y="-12"/>
+      <text class="lga-label" x="0" y="14">AGATU</text>
+    </g>
+
+    <!-- Apa -->
+    <g transform="translate(202, 212)">
+      <use href="#icon-tree" x="0" y="-12"/>
+      <text class="lga-label" x="0" y="14">APA</text>
+    </g>
+
+    <!-- Otukpo -->
+    <g transform="translate(295, 260)">
+      <use href="#icon-building" x="0" y="-12"/>
+      <text class="lga-label" x="0" y="14">OTUKPO</text>
+    </g>
+
+    <!-- Ohimini -->
+    <g transform="translate(222, 335)">
+      <use href="#icon-building" x="0" y="-10"/>
+      <text class="lga-label" x="0" y="12" font-size="11">OHIMINI</text>
+    </g>
+
+    <!-- Okpokwu -->
+    <g transform="translate(182, 428)">
+      <use href="#icon-tree" x="0" y="-12"/>
+      <text class="lga-label" x="0" y="14" font-size="11">OKPOKWU</text>
+    </g>
+
+    <!-- Ogbadibo -->
+    <g transform="translate(110, 452)">
+      <use href="#icon-tree" x="0" y="-10"/>
+      <text class="lga-label" x="0" y="12" font-size="10.5">OGBADIBO</text>
+    </g>
+
+    <!-- Ado -->
+    <g transform="translate(250, 528)">
+      <use href="#icon-sprout" x="0" y="-12"/>
+      <text class="lga-label" x="0" y="14">ADO</text>
+    </g>
+
+    <!-- Obi -->
+    <g transform="translate(372, 402)">
+      <use href="#icon-drum" x="0" y="-12"/>
+      <text class="lga-label" x="0" y="14">OBI</text>
+    </g>
+
+    <!-- Oju -->
+    <g transform="translate(415, 515)">
+      <use href="#icon-waterfall" x="0" y="-12"/>
+      <text class="lga-label" x="0" y="14">OJU</text>
+    </g>
+  </g>
+
+  <!-- RIGHT SIDEBAR / INFO PANEL -->
+  <g transform="translate(630, 130)" filter="url(#card-shadow)">
+    <!-- Main Details Card -->
+    <rect class="info-card" width="310" height="460" />
+
+    <!-- Card Header Section -->
+    <g transform="translate(28, 32)">
+      <!-- Map Marker Pin Icon -->
+      <circle cx="20" cy="20" r="20" fill="#f0f7f2" />
+      <path d="M 20 10 C 14.5 10 10 14.5 10 20 C 10 27 20 33 20 33 C 20 33 30 27 30 20 C 30 14.5 25.5 10 20 10 Z M 20 23 C 18.3 23 17 21.7 17 20 C 17 18.3 18.3 17 20 17 C 21.7 17 23 18.3 23 20 C 23 21.7 21.7 23 20 23 Z" fill="#0d5c2e"/>
+      
+      <text class="card-title" x="52" y="18">BENUE SOUTH</text>
+      <text class="card-desc" x="52" y="36">A land of heritage, unity</text>
+      <text class="card-desc" x="52" y="52">and limitless potential.</text>
+    </g>
+
+    <line x1="28" y1="110" x2="282" y2="110" stroke="#e2ede4" stroke-width="1.5" />
+
+    <!-- Features List -->
+    <g transform="translate(28, 130)">
+      
+      <!-- Feature 1: 9 LGAs -->
+      <g transform="translate(0, 0)">
+        <circle class="icon-circle" cx="18" cy="18" r="18" />
+        <!-- People Group Icon -->
+        <path class="icon-circle-svg" d="M 13 14 C 14.7 14 16 12.7 16 11 C 16 9.3 14.7 8 13 8 C 11.3 8 10 9.3 10 11 C 10 12.7 11.3 14 13 14 Z M 23 14 C 24.7 14 26 12.7 26 11 C 26 9.3 24.7 8 23 8 C 21.3 8 20 9.3 20 11 C 20 12.7 21.3 14 23 14 Z M 13 16 C 10.3 16 5 17.3 5 20 L 5 22 L 21 22 L 21 20 C 21 17.3 15.7 16 13 16 Z M 23 16 C 22.6 16 22.1 16 21.6 16.1 C 23 17.1 24 18.4 24 20 L 24 22 L 31 22 L 31 20 C 31 17.8 26.6 16 23 16 Z"/>
+        <text class="card-feature-text" x="48" y="23">9 Local Government Areas</text>
+      </g>
+
+      <!-- Feature 2: Culture -->
+      <g transform="translate(0, 58)">
+        <circle class="icon-circle" cx="18" cy="18" r="18" />
+        <!-- Drum Icon -->
+        <path class="icon-circle-svg" d="M 11 11 C 11 9.5 25 9.5 25 11 L 23 23 C 23 24.5 13 24.5 13 23 Z" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <text class="card-feature-text" x="48" y="23">Rich Culture &amp; Heritage</text>
+      </g>
+
+      <!-- Feature 3: Agriculture -->
+      <g transform="translate(0, 116)">
+        <circle class="icon-circle" cx="18" cy="18" r="18" />
+        <!-- Leaves Icon -->
+        <path class="icon-circle-svg" d="M 18 26 L 18 18 C 18 13 24 10 27 10 C 27 15 23 18 18 18 C 18 13 13 10 9 10 C 9 15 13 18 18 18"/>
+        <text class="card-feature-text" x="48" y="23">Agricultural Strength</text>
+      </g>
+
+      <!-- Feature 4: Economy -->
+      <g transform="translate(0, 174)">
+        <circle class="icon-circle" cx="18" cy="18" r="18" />
+        <!-- Chart Icon -->
+        <path class="icon-circle-svg" d="M 10 24 L 10 20 M 15 24 L 15 16 M 20 24 L 20 12 M 25 24 L 25 8" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+        <text class="card-feature-text" x="48" y="23">Growing Economy</text>
+      </g>
+
+      <!-- Feature 5: People -->
+      <g transform="translate(0, 232)">
+        <circle class="icon-circle" cx="18" cy="18" r="18" />
+        <!-- Shield Icon -->
+        <path class="icon-circle-svg" d="M 18 9 L 10 12 L 10 18 C 10 23 18 27 18 27 C 18 27 26 23 26 18 L 26 12 Z" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <text class="card-feature-text" x="48" y="23">Peaceful &amp; Resilient People</text>
+      </g>
+
+    </g>
+  </g>
+
+  <!-- CTA CARD -->
+  <g transform="translate(630, 610)" filter="url(#card-shadow)">
+    <rect class="cta-card" width="310" height="75" />
+    <g transform="translate(20, 22)">
+      <!-- Click/Touch Icon -->
+      <path d="M 18 15 L 22 27 L 17 25 L 13 32 L 9 30 L 13 23 L 8 21 Z" fill="#147a3e" stroke="#0d5c2e" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M 12 8 C 9 8 7 10 7 13" fill="none" stroke="#147a3e" stroke-width="2" stroke-linecap="round"/>
+      <text class="cta-text" x="38" y="14">SELECT AN LGA TO VIEW</text>
+      <text class="cta-text" x="38" y="30">PROJECTS AND</text>
+      <text class="cta-text" x="38" y="46">CONSTITUENCY UPDATES</text>
+    </g>
+  </g>
+
+</svg>

@@ -1,0 +1,1 @@
+export { constituencyLgas } from "./lgas";
